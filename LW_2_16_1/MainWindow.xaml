@@ -1,0 +1,77 @@
+﻿<Window x:Class="LW_2_16_1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LW_2_16_1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="600" FontSize="14">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Button Grid.Column="0" Content="Загрузить"/>
+                <Button Grid.Column="1" Content="Сохранить"/>
+            </Grid>
+
+            <ListBox x:Name="lb_Collection" Grid.Row="1"/>
+        </Grid>
+
+        <StackPanel Grid.Column="1">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Button Grid.Column="0" Content="Добавить" Click="AddElement_Click"/>
+                <Button Grid.Column="1" Content="Удалить"/>
+                <Button Grid.Column="2" Content="Изменить"/>
+            </Grid>
+
+            <ComboBox x:Name="cb_Type" SelectionChanged="TypeChanged">
+                <TextBlock Text="Тип: Organization"/>
+                <TextBlock Text="Тип: Library"/>
+                <TextBlock Text="Тип: Factory"/>
+                <TextBlock Text="Тип: InsuranceCompany"/>
+                <TextBlock Text="Тип: ShipConstructingCompany"/>
+            </ComboBox>
+
+            <TextBlock Text="Название"/>
+            <TextBox x:Name="tb_Name"/>
+
+            <TextBlock Text="Город"/>
+            <TextBox x:Name="tb_City"/>
+
+            <TextBlock Text="Средняя зарплата"/>
+            <TextBox x:Name="tb_Salary"/>
+
+            <TextBlock Text="Количество книг"/>
+            <TextBox x:Name="tb_Books" IsEnabledChanged="EnabledChanged"/>
+
+            <TextBlock Text="Продукция"/>
+            <TextBox x:Name="tb_Production" IsEnabledChanged="EnabledChanged"/>
+
+            <TextBlock Text="Количество клиентов"/>
+            <TextBox x:Name="tb_Clients" IsEnabledChanged="EnabledChanged"/>
+
+            <TextBlock Text="Количество построенных кораблей"/>
+            <TextBox x:Name="tb_Ships" IsEnabledChanged="EnabledChanged"/>
+        </StackPanel>
+    </Grid>
+</Window>
