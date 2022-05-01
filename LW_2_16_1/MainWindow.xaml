@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LW_2_16_1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="600" FontSize="14">
+        Title="MainWindow" Height="450" Width="600" FontSize="16">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -28,7 +28,7 @@
                 <Button Grid.Column="1" Content="Сохранить"/>
             </Grid>
 
-            <ListBox x:Name="lb_Collection" Grid.Row="1"/>
+            <ListBox x:Name="lb_Collection" Grid.Row="1" SelectionChanged="ListBox_SelectionChanged"/>
         </Grid>
 
         <StackPanel Grid.Column="1">
@@ -40,8 +40,8 @@
                 </Grid.ColumnDefinitions>
 
                 <Button Grid.Column="0" Content="Добавить" Click="AddElement_Click"/>
-                <Button Grid.Column="1" Content="Удалить"/>
-                <Button Grid.Column="2" Content="Изменить"/>
+                <Button Grid.Column="1" Content="Удалить" Click="DeleteElement_Click"/>
+                <Button Grid.Column="2" Content="Изменить" Click="EditElement_Click"/>
             </Grid>
 
             <ComboBox x:Name="cb_Type" SelectionChanged="TypeChanged">

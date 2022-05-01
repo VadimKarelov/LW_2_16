@@ -41,7 +41,7 @@ namespace LW_2_16_1
 
         public override string ToString()
         {
-            return $"{Name} in {City}, salary:{AverageSalary}";
+            return $"{Name} in {City}, salary: {AverageSalary}";
         }
 
         public int CompareTo(object obj)

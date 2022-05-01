@@ -28,6 +28,7 @@ namespace LW_2_16_1
 
             currentCollection = new MyNewStack<Organization>();
             currentCollection.CollectionCountChanged += UpdateListBox;
+            currentCollection.CollectionReferenceChanged += UpdateListBox;
 
             cb_Type.SelectedIndex = 0;
         }
@@ -41,73 +42,55 @@ namespace LW_2_16_1
             }
         }
 
+        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (lb_Collection.SelectedIndex > -1)
+            {
+                Organization obj = currentCollection[lb_Collection.SelectedIndex];
+                cb_Type.SelectedIndex = 0;
+
+                if (obj is Library lib)
+                {
+                    tb_Books.Text = lib.NumberOfBooks.ToString();
+                    cb_Type.SelectedIndex = 1;
+                }
+                else if (obj is Factory f)
+                {
+                    tb_Production.Text = f.Production;
+                    cb_Type.SelectedIndex = 2;
+                }
+                else if (obj is InsuranceCompany ic)
+                {
+                    tb_Clients.Text = ic.NumberOfClients.ToString();
+                    cb_Type.SelectedIndex = 3;
+                }
+                else if (obj is ShipConstructingCompany scc)
+                {
+                    tb_Ships.Text = scc.ShipConstructed.ToString();
+                    cb_Type.SelectedIndex = 4;
+                }
+            }
+        }
+
         private void AddElement_Click(object sender, RoutedEventArgs e)
         {
-            switch (cb_Type.SelectedIndex)
+            try
             {
-                case 0: AddOrganization(); break;
-                case 1: AddLibary(); break;
-                case 2: AddFactory(); break;
-                case 3: AddInsuranceCompany(); break;
-                case 4: AddShipConstructingCompany(); break;
+                switch (cb_Type.SelectedIndex)
+                {
+                    case 0: 
+                        currentCollection.Push(new Organization(tb_Name.Text, tb_City.Text, double.Parse(tb_Salary.Text))); break;
+                    case 1: 
+                        currentCollection.Push(new Library(tb_Name.Text, tb_City.Text, int.Parse(tb_Books.Text), double.Parse(tb_Salary.Text))); break;
+                    case 2: 
+                        currentCollection.Push(new Factory(tb_Name.Text, tb_City.Text, tb_Production.Text, double.Parse(tb_Salary.Text))); break;
+                    case 3: 
+                        currentCollection.Push(new InsuranceCompany(tb_Name.Text, tb_City.Text, int.Parse(tb_Clients.Text), double.Parse(tb_Salary.Text))); break;
+                    case 4: 
+                        currentCollection.Push(new ShipConstructingCompany(tb_Name.Text, tb_City.Text, double.Parse(tb_Salary.Text)) { ShipConstructed = int.Parse(tb_Ships.Text) }); break;
+                }
             }
-        }
-
-        private void AddOrganization()
-        {
-            if (double.TryParse(tb_Salary.Text, out double sal))
-            {
-                currentCollection.Push(new Organization(tb_Name.Text, tb_City.Text, sal));
-            }
-            else
-            {
-                MessageBox.Show("Не удалось добавить элемент");
-            }
-        }
-
-        private void AddLibary()
-        {
-            if (double.TryParse(tb_Salary.Text, out double sal) && int.TryParse(tb_Books.Text, out int books))
-            {
-                currentCollection.Push(new Library(tb_Name.Text, tb_City.Text, books, sal));
-            }
-            else
-            {
-                MessageBox.Show("Не удалось добавить элемент");
-            }
-        }
-
-        private void AddFactory()
-        {
-            if (double.TryParse(tb_Salary.Text, out double sal))
-            {
-                currentCollection.Push(new Factory(tb_Name.Text, tb_City.Text, tb_Production.Text, sal));
-            }
-            else
-            {
-                MessageBox.Show("Не удалось добавить элемент");
-            }
-        }
-
-        private void AddInsuranceCompany()
-        {
-            if (double.TryParse(tb_Salary.Text, out double sal) && int.TryParse(tb_Clients.Text, out int clients))
-            {
-                currentCollection.Push(new InsuranceCompany(tb_Name.Text, tb_City.Text, clients, sal));
-            }
-            else
-            {
-                MessageBox.Show("Не удалось добавить элемент");
-            }
-        }
-
-        private void AddShipConstructingCompany()
-        {
-            if (double.TryParse(tb_Salary.Text, out double sal) && int.TryParse(tb_Ships.Text, out int ships))
-            {
-                currentCollection.Push(new ShipConstructingCompany(tb_Name.Text, tb_City.Text, sal) { ShipConstructed = ships });
-            }
-            else
+            catch
             {
                 MessageBox.Show("Не удалось добавить элемент");
             }
@@ -179,6 +162,42 @@ namespace LW_2_16_1
                 else
                 {
                     tb.Background = new SolidColorBrush(Colors.DarkOrange);
+                }
+            }
+        }
+
+        private void DeleteElement_Click(object sender, RoutedEventArgs e)
+        {
+            if (lb_Collection.SelectedIndex > -1)
+            {
+                currentCollection.Remove(lb_Collection.SelectedIndex);
+            }
+        }
+
+        private void EditElement_Click(object sender, RoutedEventArgs e)
+        {
+            int index = lb_Collection.SelectedIndex;
+            if (index > -1)
+            {
+                try
+                {
+                    switch (cb_Type.SelectedIndex)
+                    {
+                        case 0:
+                            currentCollection[index] = new Organization(tb_Name.Text, tb_City.Text, double.Parse(tb_Salary.Text)); break;
+                        case 1:
+                            currentCollection[index] = new Library(tb_Name.Text, tb_City.Text, int.Parse(tb_Books.Text), double.Parse(tb_Salary.Text)); break;
+                        case 2:
+                            currentCollection[index] = new Factory(tb_Name.Text, tb_City.Text, tb_Production.Text, double.Parse(tb_Salary.Text)); break;
+                        case 3:
+                            currentCollection[index] = new InsuranceCompany(tb_Name.Text, tb_City.Text, int.Parse(tb_Clients.Text), double.Parse(tb_Salary.Text)); break;
+                        case 4:
+                            currentCollection[index] = new ShipConstructingCompany(tb_Name.Text, tb_City.Text, double.Parse(tb_Salary.Text)) { ShipConstructed = int.Parse(tb_Ships.Text) }; break;
+                    }
+                }
+                catch
+                {
+                    MessageBox.Show("Не удалось отредакировать элемент");
                 }
             }
         }
