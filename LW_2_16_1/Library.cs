@@ -7,9 +7,15 @@ using System.Threading.Tasks;
 
 namespace LW_2_16_1
 {
+    [Serializable]
     public class Library : Organization, IComparable, ICloneable, IExecutable
     {
         public int NumberOfBooks { get; set; }
+
+        public Library() : base()
+        {
+            NumberOfBooks = 0;
+        }
 
         public Library(string name, string locationCity, int numOfBooks, double avgSalary) : base(name, locationCity, avgSalary)
         {

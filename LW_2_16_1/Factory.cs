@@ -7,11 +7,18 @@ using System.Threading.Tasks;
 
 namespace LW_2_16_1
 {
+    [Serializable]
     public class Factory : Organization, IComparable, ICloneable, IExecutable
     {
         public string Production { get; set; }
 
         public Organization HeadOrganization { get; set; }
+
+        public Factory() : base()
+        {
+            Production = "default production";
+            HeadOrganization = new Organization();
+        }
 
         public Factory(string name, string locationCity, string production, double avgSalary) 
             : base(name, locationCity, avgSalary)

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,6 +19,7 @@ namespace LW_2_16_1
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
+    [Serializable]
     public partial class MainWindow : Window
     {
         private MyNewStack<Organization> currentCollection;
@@ -42,11 +44,23 @@ namespace LW_2_16_1
             }
         }
 
+        private void UpdateListBox()
+        {
+            lb_Collection.Items.Clear();
+            foreach (var item in currentCollection)
+            {
+                lb_Collection.Items.Add(item);
+            }
+        }
+
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (lb_Collection.SelectedIndex > -1)
             {
                 Organization obj = currentCollection[lb_Collection.SelectedIndex];
+                tb_Name.Text = obj.Name;
+                tb_City.Text = obj.City;
+                tb_Salary.Text = obj.AverageSalary.ToString();
                 cb_Type.SelectedIndex = 0;
 
                 if (obj is Library lib)
@@ -199,6 +213,81 @@ namespace LW_2_16_1
                 {
                     MessageBox.Show("Не удалось отредакировать элемент");
                 }
+            }
+        }
+
+        private void SaveToBinaryFile_Click(object sender, RoutedEventArgs e)
+        {
+            SaveFileDialog dialog = new SaveFileDialog()
+            {
+                Filter = "(*.dat)|*.dat"
+            };
+
+            if (dialog.ShowDialog() == true)
+            {
+                using (FileHandler fh = new FileHandler())
+                {
+                    fh.WriteBinary(dialog.FileName, currentCollection);
+                }
+            }
+        }
+
+        private void SaveToJSONFile_Click(object sender, RoutedEventArgs e)
+        {
+            SaveFileDialog dialog = new SaveFileDialog()
+            {
+                Filter = "(*.json)|*.json"
+            };
+
+            if (dialog.ShowDialog() == true)
+            {
+                using (FileHandler fh = new FileHandler())
+                {
+                    fh.WriteJSON(dialog.FileName, currentCollection);
+                }
+            }
+        }
+
+        private void SaveToXMLFile_Click(object sender, RoutedEventArgs e)
+        {
+            SaveFileDialog dialog = new SaveFileDialog()
+            {
+                Filter = "(*.xml)|*.xml"
+            };
+
+            if (dialog.ShowDialog() == true)
+            {
+                using (FileHandler fh = new FileHandler())
+                {
+                    fh.WriteXML(dialog.FileName, currentCollection);
+                }
+            }
+        }
+
+        private void ReadFile_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                OpenFileDialog dialog = new OpenFileDialog()
+                {
+                    Filter = "*.dat,*.json,*.xml|*.dat;*.json;*.xml"
+                };
+
+                if (dialog.ShowDialog() == true)
+                {
+                    using (FileHandler fh = new FileHandler())
+                    {
+                        currentCollection = fh.ReadFile<Organization>(dialog.FileName);
+                        currentCollection.CollectionCountChanged += UpdateListBox;
+                        currentCollection.CollectionReferenceChanged += UpdateListBox;
+                        UpdateListBox();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Не удалось открыть файл");
+                Console.WriteLine(ex.Message);
             }
         }
     }

@@ -7,9 +7,15 @@ using System.Threading.Tasks;
 
 namespace LW_2_16_1
 {
+    [Serializable]
     public class ShipConstructingCompany : Organization, IComparable, ICloneable, IExecutable
     {
         public int ShipConstructed { get; set; }
+
+        public ShipConstructingCompany() : base()
+        {
+            ShipConstructed = 0;
+        }
 
         public ShipConstructingCompany(string name, string locationCity, double avgSalary) 
             : base(name, locationCity, avgSalary)

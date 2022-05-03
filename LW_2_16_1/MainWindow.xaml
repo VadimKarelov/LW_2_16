@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LW_2_16_1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="600" FontSize="16">
+        Title="OOP_16_1" Height="450" Width="600" FontSize="16">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -15,20 +15,28 @@
         <Grid Grid.Column="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <Grid Grid.Row="0">
+            <Button Grid.Row="0" Content="Загрузить" Click="ReadFile_Click"/>
+            
+            <TextBlock Grid.Row="1" Text="Сохранить"/>
+
+            <Grid Grid.Row="2">
                 <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
 
-                <Button Grid.Column="0" Content="Загрузить"/>
-                <Button Grid.Column="1" Content="Сохранить"/>
+                <Button Content="Binary" Grid.Column="0" Click="SaveToBinaryFile_Click"/>
+                <Button Content="JSON" Grid.Column="1" Click="SaveToJSONFile_Click"/>
+                <Button Content="XML" Grid.Column="2" Click="SaveToXMLFile_Click"/>
             </Grid>
 
-            <ListBox x:Name="lb_Collection" Grid.Row="1" SelectionChanged="ListBox_SelectionChanged"/>
+            <ListBox x:Name="lb_Collection" Grid.Row="3" SelectionChanged="ListBox_SelectionChanged"/>
         </Grid>
 
         <StackPanel Grid.Column="1">

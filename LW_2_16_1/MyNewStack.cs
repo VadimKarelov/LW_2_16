@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace LW_2_16_1
 {
+    [Serializable]
     public class MyNewStack<T> : MyStack<T>
     {
         public string Name { get; set; } = "MyNewCollection";
@@ -14,8 +15,10 @@ namespace LW_2_16_1
 
         public delegate void MyStackHandler(object sender, MyStackHandlerEventArgs<T> args);
 
+        [field:NonSerialized]
         public event MyStackHandler CollectionCountChanged;
 
+        [field:NonSerialized]
         public event MyStackHandler CollectionReferenceChanged;
 
         public virtual void OnCollectionReferenceChanged(object sender, MyStackHandlerEventArgs<T> args)
@@ -42,6 +45,11 @@ namespace LW_2_16_1
         {            
             base.Push(values);
             OnCollectionCountChanged(this.Clone(), new MyStackHandlerEventArgs<T>(this.Name, "push many", values[0]));
+        }
+
+        public void Add(object obj)
+        {
+
         }
 
         public new void Remove()

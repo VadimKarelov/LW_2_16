@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace LW_2_16_1
 {
+    [Serializable]
     public class MyStack<T> : IEnumerable<T>
     {
         public int Count
@@ -79,6 +80,11 @@ namespace LW_2_16_1
             {
                 this.Push(values[i]);
             }
+        }
+
+        public void Add(object obj)
+        {
+
         }
 
         public T Get()
@@ -207,6 +213,7 @@ namespace LW_2_16_1
         }
     }
 
+    [Serializable]
     public class Element<T> : IDisposable
     {
         public T Value;
@@ -215,6 +222,11 @@ namespace LW_2_16_1
         public Element<T> PreviousElement;
 
         private bool _disposed = false;
+
+        public Element()
+        {
+
+        }
 
         public Element(T value, Element<T> prev, Element<T> next)
         {
@@ -237,6 +249,7 @@ namespace LW_2_16_1
         }
     }
 
+    [Serializable]
     public class MyEnumerator<T> : IEnumerator<T>
     {
         private Element<T> _begin;
@@ -252,7 +265,7 @@ namespace LW_2_16_1
             if (stack.Count == 0) _isCalled = true;
         }
 
-        public object Current { get { return _current; } }
+        public object Current { get { return _current.Value; } }
 
         T IEnumerator<T>.Current
         {

@@ -4,14 +4,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace LW_2_16_1
 {
+    [XmlInclude(typeof(Library))]
+    [XmlInclude(typeof(Factory))]
+    [XmlInclude(typeof(InsuranceCompany))]
+    [XmlInclude(typeof(ShipConstructingCompany))]
+    [Serializable]
     public class Organization : IComparable, ICloneable, IExecutable
     {
         public string Name { get; set; }
         public string City { get; set; }
         public double AverageSalary { get; set; }
+
+        public Organization()
+        {
+            Name = "default name";
+            City = "default city";
+            AverageSalary = 0;
+        }
 
         public Organization(string name, string locationCity, double avgSalary)
         {
