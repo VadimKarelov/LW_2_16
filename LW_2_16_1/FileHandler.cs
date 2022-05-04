@@ -24,9 +24,17 @@ namespace LW_2_16_1
 
         public void WriteJSON<T>(string path, MyNewStack<T> collection)
         {
-            using (FileStream writer = new FileStream(path, FileMode.OpenOrCreate))
+            using (StreamWriter writer = new StreamWriter(path))
             {
-                JsonSerializer.Serialize(writer, collection);
+                string json = "[";
+                foreach (var item in collection)
+                {
+                    json += JsonSerializer.Serialize(item, item.GetType(), new JsonSerializerOptions() { WriteIndented = true })+",";
+                }
+                json = json.Remove(json.Length - 1, 1);
+                json += "]";
+                writer.Write(json);
+                
             }
         }
 
@@ -46,7 +54,7 @@ namespace LW_2_16_1
             {
                 return coll1 as MyNewStack<Organization>;
             }
-            if (TryReadJSON(path, out MyNewStack<T> coll2))
+            if (TryReadJSON(path, out MyNewStack<Organization> coll2))
             {
                 return coll2 as MyNewStack<Organization>;
             }
@@ -79,15 +87,15 @@ namespace LW_2_16_1
             }
         }
 
-        private bool TryReadJSON<T>(string path, out MyNewStack<T> collection)
+        private bool TryReadJSON(string path, out MyNewStack<Organization> collection)
         {
-            collection = new MyNewStack<T>();
+            collection = new MyNewStack<Organization>();
 
             try
             {
-                using (FileStream fs = new FileStream(path, FileMode.OpenOrCreate))
+                using (StreamReader fs = new StreamReader(path))
                 {
-                    collection = JsonSerializer.Deserialize<MyNewStack<T>>(fs);
+                    collection = JsonSerializer.Deserialize<Organization[]>(fs.ReadToEnd()).ToMyNewStack();
                 }
                 return true;
             }

@@ -1,0 +1,6 @@
+D:\University\2 year\OOP\LW_2_16\LW_2_16_1\obj\Debug\net472\LW_2_16_1.csproj.AssemblyReference.cache
+D:\University\2 year\OOP\LW_2_16\LW_2_16_1\obj\Debug\net472\LW_2_16_1.csproj.SuggestedBindingRedirects.cache
+D:\University\2 year\OOP\LW_2_16\LW_2_16_1\obj\Debug\net472\MainWindow.g.cs
+D:\University\2 year\OOP\LW_2_16\LW_2_16_1\obj\Debug\net472\App.g.cs
+D:\University\2 year\OOP\LW_2_16\LW_2_16_1\obj\Debug\net472\LW_2_16_1_MarkupCompile.cache
+D:\University\2 year\OOP\LW_2_16\LW_2_16_1\obj\Debug\net472\LW_2_16_1_MarkupCompile.lref
