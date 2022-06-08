@@ -13,7 +13,7 @@
                 <DropShadowEffect BlurRadius="40" Color="LightGray" ShadowDepth="0"></DropShadowEffect>
             </Border.Effect>
             <StackPanel>
-                
+
                 <Grid VerticalAlignment="Bottom" Margin="0 0 0 20">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"/>
@@ -21,13 +21,13 @@
                         <ColumnDefinition />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-                    
+
                     <TextBlock  Grid.Column="0" x:Name="title"  FontSize="30" FontWeight ="Bold" >
                      Автосалон в Закамске
                     </TextBlock>
-                    <Button Grid.Column="1" Content="Изменить"   Width="100" BorderThickness="1"  Background="#FF2D8C21" />
-                    <Button Grid.Column="2" Content="Добавить"  Width="100" BorderThickness="1"  Background="#FF2D8C21" />
-                    <Button Grid.Column="3" Content="Удалить"  Width="100" BorderThickness="1"  Background="#FF2D8C21" />
+                    <Button Grid.Column="1" Content="Изменить"   Width="100" BorderThickness="1"  Background="#FF43165E" Cursor="Hand" />
+                    <Button Grid.Column="2" Content="Добавить"  Width="100" BorderThickness="1"  Background="#FF43165E" Cursor="Hand" />
+                    <Button Grid.Column="3" Content="Удалить"  Width="100" BorderThickness="1"  Background="#FF43165E" Cursor="Hand" />
                 </Grid>
 
                 <Grid Margin="0 0 0 20">
