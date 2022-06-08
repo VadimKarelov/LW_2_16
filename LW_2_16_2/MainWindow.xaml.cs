@@ -100,18 +100,6 @@ namespace LW_2_16_2
             textColumn3.Binding = new Binding("Column3");
             genTable.Columns.Add(textColumn3);
 
-            DataGridTextColumn textColumn4 = new DataGridTextColumn();
-            textColumn4.Header = "Изменение";
-            textColumn4.Binding = new Binding("Column4");
-            genTable.Columns.Add(textColumn4);
-
-            DataGridTextColumn textColumn5 = new DataGridTextColumn();
-            textColumn5.Header = "Удаление";
-            textColumn5.Binding = new Binding("Column5");
-            genTable.Columns.Add(textColumn5);
-
-            /*Button button = new Button();
-            Button button2 = new Button();*/
             for (int i = 0; i < 3; i++)
             {
                 genTable.Items.Add(new DataItem2 { Column1 = "a.1", Column2 = "a.2", Column3 = "a.3"});
