@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\University\\2 year\\OOP\\LW_2_16\\LW_2_16_1\\LW_2_16_1.csproj": {}
+    "D:\\University\\2 year\\OOP\\LW_2_16\\LW_2_16_2\\LW_2_16_2.csproj": {}
   },
   "projects": {
-    "D:\\University\\2 year\\OOP\\LW_2_16\\LW_2_16_1\\LW_2_16_1.csproj": {
+    "D:\\University\\2 year\\OOP\\LW_2_16\\LW_2_16_2\\LW_2_16_2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\University\\2 year\\OOP\\LW_2_16\\LW_2_16_1\\LW_2_16_1.csproj",
-        "projectName": "LW_2_16_1",
-        "projectPath": "D:\\University\\2 year\\OOP\\LW_2_16\\LW_2_16_1\\LW_2_16_1.csproj",
+        "projectUniqueName": "D:\\University\\2 year\\OOP\\LW_2_16\\LW_2_16_2\\LW_2_16_2.csproj",
+        "projectName": "LW_2_16_2",
+        "projectPath": "D:\\University\\2 year\\OOP\\LW_2_16\\LW_2_16_2\\LW_2_16_2.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "D:\\University\\2 year\\OOP\\LW_2_16\\LW_2_16_1\\obj\\",
+        "outputPath": "D:\\University\\2 year\\OOP\\LW_2_16\\LW_2_16_2\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "D:\\IDE\\Microsoft Visual Studio\\SDK\\NuGetPackages"
@@ -43,20 +43,6 @@
       "frameworks": {
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
-          "dependencies": {
-            "Newtonsoft.Json": {
-              "target": "Package",
-              "version": "[13.0.1, )"
-            },
-            "System.Runtime": {
-              "target": "Package",
-              "version": "[4.3.1, )"
-            },
-            "System.Text.Json": {
-              "target": "Package",
-              "version": "[6.0.3, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",

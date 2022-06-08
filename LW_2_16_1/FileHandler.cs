@@ -29,7 +29,7 @@ namespace LW_2_16_1
                 string json = "[";
                 foreach (var item in collection)
                 {
-                    json += JsonSerializer.Serialize(item, item.GetType(), new JsonSerializerOptions() { WriteIndented = true })+",";
+                    json += JsonSerializer.Serialize(item, item.GetType(), new JsonSerializerOptions() { WriteIndented = true }) + ",";
                 }
                 json = json.Remove(json.Length - 1, 1);
                 json += "]";
