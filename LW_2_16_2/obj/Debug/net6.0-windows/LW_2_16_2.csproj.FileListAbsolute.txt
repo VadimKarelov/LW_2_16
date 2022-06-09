@@ -35,11 +35,9 @@ D:\University\2 year\OOP\LW_2_16\LW_2_16_2\bin\Debug\net6.0-windows\runtimes\win
 D:\University\2 year\OOP\LW_2_16\LW_2_16_2\bin\Debug\net6.0-windows\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
 D:\University\2 year\OOP\LW_2_16\LW_2_16_2\bin\Debug\net6.0-windows\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 D:\University\2 year\OOP\LW_2_16\LW_2_16_2\obj\Debug\net6.0-windows\LW_2_16_2.csproj.AssemblyReference.cache
-D:\University\2 year\OOP\LW_2_16\LW_2_16_2\obj\Debug\net6.0-windows\MainWindow.g.cs
 D:\University\2 year\OOP\LW_2_16\LW_2_16_2\obj\Debug\net6.0-windows\App.g.cs
 D:\University\2 year\OOP\LW_2_16\LW_2_16_2\obj\Debug\net6.0-windows\LW_2_16_2_MarkupCompile.cache
 D:\University\2 year\OOP\LW_2_16\LW_2_16_2\obj\Debug\net6.0-windows\LW_2_16_2_MarkupCompile.lref
-D:\University\2 year\OOP\LW_2_16\LW_2_16_2\obj\Debug\net6.0-windows\MainWindow.baml
 D:\University\2 year\OOP\LW_2_16\LW_2_16_2\obj\Debug\net6.0-windows\LW_2_16_2.g.resources
 D:\University\2 year\OOP\LW_2_16\LW_2_16_2\obj\Debug\net6.0-windows\LW_2_16_2.GeneratedMSBuildEditorConfig.editorconfig
 D:\University\2 year\OOP\LW_2_16\LW_2_16_2\obj\Debug\net6.0-windows\LW_2_16_2.AssemblyInfoInputs.cache
@@ -51,3 +49,9 @@ D:\University\2 year\OOP\LW_2_16\LW_2_16_2\obj\Debug\net6.0-windows\refint\LW_2_
 D:\University\2 year\OOP\LW_2_16\LW_2_16_2\obj\Debug\net6.0-windows\LW_2_16_2.pdb
 D:\University\2 year\OOP\LW_2_16\LW_2_16_2\obj\Debug\net6.0-windows\LW_2_16_2.genruntimeconfig.cache
 D:\University\2 year\OOP\LW_2_16\LW_2_16_2\obj\Debug\net6.0-windows\ref\LW_2_16_2.dll
+D:\University\2 year\OOP\LW_2_16\LW_2_16_2\bin\Debug\net6.0-windows\LW_2_16_2.dll.config
+D:\University\2 year\OOP\LW_2_16\LW_2_16_2\obj\Debug\net6.0-windows\Forms\MainWindow.g.cs
+D:\University\2 year\OOP\LW_2_16\LW_2_16_2\obj\Debug\net6.0-windows\App.baml
+D:\University\2 year\OOP\LW_2_16\LW_2_16_2\obj\Debug\net6.0-windows\Forms\MainWindow.baml
+D:\University\2 year\OOP\LW_2_16\LW_2_16_2\bin\Debug\net6.0-windows\MaterialDesignColors.dll
+D:\University\2 year\OOP\LW_2_16\LW_2_16_2\bin\Debug\net6.0-windows\MaterialDesignThemes.Wpf.dll

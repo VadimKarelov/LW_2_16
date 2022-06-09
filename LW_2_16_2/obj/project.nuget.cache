@@ -1,10 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "w0cuqq5Fj78yDsL/LdvoLb2C7g3bxPivINi44F+B3gY3wjPNMPyYbSwQEApel6jVKVEmkT+c4IkgDhlpFjFPLg==",
+  "dgSpecHash": "fXQDeGxWBNBFAlKtrRle/w21jOo/wKLlHHmmaA2wQ879nBDUB+5cdY/pznIeOekFKKrJGmcuI7IcmZjPFCJ76A==",
   "success": true,
   "projectFilePath": "D:\\University\\2 year\\OOP\\LW_2_16\\LW_2_16_2\\LW_2_16_2.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Admin\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\materialdesigncolors\\2.0.6\\materialdesigncolors.2.0.6.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\materialdesignthemes\\4.5.0\\materialdesignthemes.4.5.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.4\\microsoft.data.sqlclient.2.1.4.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.1.1\\microsoft.data.sqlclient.sni.runtime.2.1.1.nupkg.sha512",
