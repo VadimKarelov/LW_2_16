@@ -11,11 +11,13 @@ namespace LW_2_16_2.Data
     {
         public AutoFactoryContext()
         {
+            Database.EnsureCreated();
         }
 
         public AutoFactoryContext(DbContextOptions<AutoFactoryContext> options)
             : base(options)
         {
+            Database.EnsureCreated();
         }
 
         public virtual DbSet<Body> Bodies { get; set; } = null!;

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LW_2_16_2.Data.Repository;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,7 +21,6 @@ namespace LW_2_16_2
     /// </summary>
     public partial class MainWindow : Window
     {
-
         public class DataItem
         {
             public string Column1 { get; set; }
@@ -45,7 +45,7 @@ namespace LW_2_16_2
         {
             InitializeComponent();
             
-            genTable = GeneralTable;          
+            genTable = GeneralTable;
         }
 
         private void vehicle_brands_Click(object sender, RoutedEventArgs e)
