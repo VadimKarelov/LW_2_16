@@ -7,6 +7,32 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Forms\AddingPages\AddBody.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Forms\AddingPages\AddBrand.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Forms\AddingPages\AddVehicle.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Forms\AdminWind.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Forms\AddingPages\AddBody.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Forms\AddingPages\AddBrand.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Forms\AddingPages\AddVehicle.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Forms\AdminWind.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Forms\MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>

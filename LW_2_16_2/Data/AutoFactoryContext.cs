@@ -14,8 +14,7 @@ namespace LW_2_16_2.Data
             Database.EnsureCreated();
         }
 
-        public AutoFactoryContext(DbContextOptions<AutoFactoryContext> options)
-            : base(options)
+        public AutoFactoryContext(DbContextOptions<AutoFactoryContext> options): base(options)
         {
             Database.EnsureCreated();
         }
