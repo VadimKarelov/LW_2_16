@@ -13,8 +13,7 @@ namespace LW_2_16_2.Data
         {
         }
 
-        public AutoFactoryContext(DbContextOptions<AutoFactoryContext> options)
-            : base(options)
+        public AutoFactoryContext(DbContextOptions<AutoFactoryContext> options): base(options)
         {
         }
 
