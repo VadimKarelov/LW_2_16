@@ -1,4 +1,6 @@
-﻿using System;
+﻿using LW_2_16_2.Data.Repository;
+using LW_2_16_2.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +25,24 @@ namespace LW_2_16_2.Forms.AddingPages
         public AddBody()
         {
             InitializeComponent();
+        }
+
+        private void CreateBody_Click(object sender, RoutedEventArgs e)
+        {
+            if (NewBody_tb.Text != "" && float.TryParse(NewSquare_tb.Text, out float res))
+            {
+                Body body = new Body()
+                {
+                    BodyTitle = NewBody_tb.Text,
+                    BodySquare = res
+                };
+
+                using (BodyRepository rep = new BodyRepository())
+                {
+                    rep.Create(body);
+                    rep.Save();
+                }
+            }
         }
     }
 }
