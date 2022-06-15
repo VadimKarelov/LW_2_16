@@ -1,4 +1,8 @@
-﻿using System;
+﻿using LW_2_16_2.Data.Repository;
+using LW_2_16_2.Forms.AdminWindow;
+using LW_2_16_2.Forms.AdminWindow.TableItems;
+using LW_2_16_2.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -42,10 +46,12 @@ namespace LW_2_16_2.Forms
         {
             InitializeComponent();
             genTable = GeneralTable;
+            ShowVehicles();
         }
 
         private void vehicle_brands_Click(object sender, RoutedEventArgs e)
         {
+            /*
             genTable.Columns.Clear();
             genTable.Items.Clear();
 
@@ -74,10 +80,12 @@ namespace LW_2_16_2.Forms
             genTable.VerticalAlignment = VerticalAlignment.Center;
             genTable.Columns[0].Width = width * 0.2;
             genTable.Columns[1].Width = width * 0.4;
-            genTable.Columns[2].Width = width * 0.4;
+            genTable.Columns[2].Width = width * 0.4;*/
+
         }
         private void vehicle_bodies_Click(object sender, RoutedEventArgs e)
         {
+            /*
             genTable.Columns.Clear();
             genTable.Items.Clear();
 
@@ -105,10 +113,12 @@ namespace LW_2_16_2.Forms
             genTable.VerticalAlignment = VerticalAlignment.Center;
             genTable.Columns[0].Width = width * 0.2;
             genTable.Columns[1].Width = width * 0.4;
-            genTable.Columns[2].Width = width * 0.4;
+            genTable.Columns[2].Width = width * 0.4;*/
         }
         private void vehicle_Click(object sender, RoutedEventArgs e)
         {
+            ShowVehicles();
+            /*
             genTable.Columns.Clear();
             genTable.Items.Clear();
 
@@ -143,7 +153,7 @@ namespace LW_2_16_2.Forms
             genTable.Columns[0].Width = width * 0.1;
             genTable.Columns[1].Width = width * 0.3;
             genTable.Columns[2].Width = width * 0.3;
-            genTable.Columns[3].Width = width * 0.3;
+            genTable.Columns[3].Width = width * 0.3;*/
         }
 
         private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
@@ -181,6 +191,51 @@ namespace LW_2_16_2.Forms
             else
             {
                 NavigationService.Navigate(new Forms.AddingPages.AddBody());
+            }
+        }
+
+        private List<Vehicle> _vehicles;
+        private List<Brand> _brands;
+        private List<Body> _bodies;
+
+        private void LoadBrands()
+        {
+            using (BrandRepository rep = new BrandRepository())
+            {
+                _brands = rep.GetList().ToList();
+            }
+        }
+
+        private void ShowVehicles()
+        {
+            using (VehicleRepository rep = new VehicleRepository())
+            {
+                _vehicles = rep.GetList().ToList();
+            }
+
+            genTable.ItemsSource = _vehicles.Select(x => new VehicleTableItem(x));
+
+            if (genTable.Columns.Count > 0)
+            {
+                genTable.Columns[1].Header = "Модель";
+                genTable.Columns[2].Header = "Марка";
+                genTable.Columns[3].Header = "Кузов";
+            }
+        }
+
+        private void ShowBodies()
+        {
+            using (BodyRepository rep = new BodyRepository())
+            {
+                _bodies = rep.GetList().ToList();
+            }
+        }
+
+        private void ShowBrands()
+        {
+            using (BrandRepository rep = new BrandRepository())
+            {
+                _brands = rep.GetList().ToList();
             }
         }
     }
