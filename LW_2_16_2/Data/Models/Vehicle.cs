@@ -12,5 +12,10 @@ namespace LW_2_16_2.Models
 
         public virtual Body VehicleBody { get; set; } = null!;
         public virtual Brand VehicleBrand { get; set; } = null!;
+
+        public override string ToString()
+        {
+            return VehicleTitle;
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LW_2_16_2.Data.Repository;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,24 @@ namespace LW_2_16_2.Forms.AddingPages
         public AddVehicle()
         {
             InitializeComponent();
+            LoadBodiesToComboBox();
+            LoadBrandsToComboBox();
+        }
+
+        private void LoadBrandsToComboBox()
+        {
+            using (BrandRepository rep = new BrandRepository())
+            {
+                NewBrand_cb.ItemsSource = rep.GetList().Select(x => x.ToString());                
+            }
+        }
+
+        private void LoadBodiesToComboBox()
+        {
+            using (BodyRepository rep = new BodyRepository())
+            {
+                NewBody_cb.ItemsSource = rep.GetList().Select(x => x.ToString());
+            }
         }
     }
 }

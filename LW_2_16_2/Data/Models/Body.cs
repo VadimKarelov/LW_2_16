@@ -15,5 +15,10 @@ namespace LW_2_16_2.Models
         public float BodySquare { get; set; }
 
         public virtual ICollection<Vehicle> Vehicles { get; set; }
+
+        public override string ToString()
+        {
+            return BodyTitle;
+        }
     }
 }

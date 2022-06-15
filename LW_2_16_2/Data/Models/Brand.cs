@@ -15,5 +15,10 @@ namespace LW_2_16_2.Models
         public string BrandCountry { get; set; } = null!;
 
         public virtual ICollection<Vehicle> Vehicles { get; set; }
+
+        public override string ToString()
+        {
+            return BrandTitle;
+        }
     }
 }
