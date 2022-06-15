@@ -73,13 +73,13 @@ namespace LW_2_16_2.Data
                 entity.HasOne(d => d.VehicleBody)
                     .WithMany(p => p.Vehicles)
                     .HasForeignKey(d => d.VehicleBodyId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .OnDelete(DeleteBehavior.ClientCascade)
                     .HasConstraintName("FK_Vehicle_Body");
 
                 entity.HasOne(d => d.VehicleBrand)
                     .WithMany(p => p.Vehicles)
                     .HasForeignKey(d => d.VehicleBrandId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .OnDelete(DeleteBehavior.ClientCascade)
                     .HasConstraintName("FK_Vehicle_Brand");
             });
 

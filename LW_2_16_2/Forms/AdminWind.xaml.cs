@@ -37,6 +37,7 @@ namespace LW_2_16_2.Forms
             public Button Column4 { get; set; }
             public Button Column5 { get; set; }
         }
+
         public AdminWind()
         {
             InitializeComponent();

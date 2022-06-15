@@ -48,7 +48,7 @@
                     <ComboBox x:Name="NewBrand_cb" FontSize="20" FontWeight ="Light" BorderThickness="0"/>
                 </Border>
                 <Border Grid.Column="1" Grid.Row="2"  BorderThickness="1" BorderBrush="Black" Background="White" CornerRadius="10" >
-                    <TextBox x:Name="NewNodel_tb" FontSize="20" FontWeight ="Light" BorderThickness="0"/>
+                    <TextBox x:Name="NewModel_tb" FontSize="20" FontWeight ="Light" BorderThickness="0"/>
                     <!--<ComboBox x:Name="NewModel_cb" FontSize="20" FontWeight ="Light" BorderThickness="0"/>-->
                 </Border>
                 <Border Grid.Column="1" Grid.Row="4"  BorderThickness="1" BorderBrush="Black" Background="White" CornerRadius="10" >
@@ -59,7 +59,7 @@
 
         </Border>
         <Grid VerticalAlignment="Center" Margin="0 0 0 0" Grid.Row="2">
-            <Button Margin="20" Content="Добавить" Height="50" Width="auto" BorderThickness="1"  Background="#FF43165E" Cursor="Hand" />
+            <Button Margin="20" Content="Добавить" Click="CreateVehicle_Click" Height="50" Width="auto" BorderThickness="1"  Background="#FF43165E" Cursor="Hand" />
         </Grid>
     </Grid>
 </Page>

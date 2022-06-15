@@ -42,6 +42,8 @@ namespace LW_2_16_2.Forms.AddingPages
                     rep.Create(body);
                     rep.Save();
                 }
+
+                NavigationService.Navigate(new Forms.AdminWind());
             }
         }
     }

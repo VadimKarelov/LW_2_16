@@ -1,4 +1,6 @@
-﻿using System;
+﻿using LW_2_16_2.Data.Repository;
+using LW_2_16_2.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +25,26 @@ namespace LW_2_16_2.Forms.AddingPages
         public AddBrand()
         {
             InitializeComponent();
+        }
+
+        private void CreateBrand_Click(object sender, RoutedEventArgs e)
+        {
+            if (NewBrand_tb.Text != "" && NewCountry_tb.Text != "")
+            {
+                Brand brand = new Brand()
+                {
+                    BrandTitle = NewBrand_tb.Text,
+                    BrandCountry = NewCountry_tb.Text
+                };
+
+                using (BrandRepository rep = new BrandRepository())
+                {
+                    rep.Create(brand);
+                    rep.Save();
+                }
+
+                NavigationService.Navigate(new Forms.AdminWind());
+            }
         }
     }
 }
