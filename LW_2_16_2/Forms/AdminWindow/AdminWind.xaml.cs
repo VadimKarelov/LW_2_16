@@ -25,135 +25,11 @@ namespace LW_2_16_2.Forms
     public partial class AdminWind : Page
     {
         public DataGrid genTable = new DataGrid();
-        public class DataItem
-        {
-            public string Column1 { get; set; }
-            public string Column2 { get; set; }
-            public string Column3 { get; set; }
-            public string Column4 { get; set; }
-        }
-
-        public class DataItem2
-        {
-            public string Column1 { get; set; }
-            public string Column2 { get; set; }
-            public string Column3 { get; set; }
-            public Button Column4 { get; set; }
-            public Button Column5 { get; set; }
-        }
 
         public AdminWind()
         {
             InitializeComponent();
             genTable = GeneralTable;
-            ShowVehicles();
-        }
-
-        private void vehicle_brands_Click(object sender, RoutedEventArgs e)
-        {
-            /*
-            genTable.Columns.Clear();
-            genTable.Items.Clear();
-
-            DataGridTextColumn textColumn = new DataGridTextColumn();
-            textColumn.Header = "ID";
-            textColumn.Binding = new Binding("Column1");
-            genTable.Columns.Add(textColumn);
-
-            DataGridTextColumn textColumn2 = new DataGridTextColumn();
-            textColumn2.Header = "Название марки";
-            textColumn2.Binding = new Binding("Column2");
-            genTable.Columns.Add(textColumn2);
-
-            DataGridTextColumn textColumn3 = new DataGridTextColumn();
-            textColumn3.Header = "Страна производства";
-            textColumn3.Binding = new Binding("Column3");
-            genTable.Columns.Add(textColumn3);
-
-            for (int i = 0; i < 3; i++)
-            {
-                genTable.Items.Add(new DataItem { Column1 = "a.1", Column2 = "a.2", Column3 = "a.3" });
-            }
-
-            //genTable.Width = title.Width;
-            int width = ((int)this.Width) - 150;
-            genTable.VerticalAlignment = VerticalAlignment.Center;
-            genTable.Columns[0].Width = width * 0.2;
-            genTable.Columns[1].Width = width * 0.4;
-            genTable.Columns[2].Width = width * 0.4;*/
-
-        }
-        private void vehicle_bodies_Click(object sender, RoutedEventArgs e)
-        {
-            /*
-            genTable.Columns.Clear();
-            genTable.Items.Clear();
-
-            DataGridTextColumn textColumn = new DataGridTextColumn();
-            textColumn.Header = "ID";
-            textColumn.Binding = new Binding("Column1");
-            genTable.Columns.Add(textColumn);
-
-            DataGridTextColumn textColumn2 = new DataGridTextColumn();
-            textColumn2.Header = "Тип кузова";
-            textColumn2.Binding = new Binding("Column2");
-            genTable.Columns.Add(textColumn2);
-
-            DataGridTextColumn textColumn3 = new DataGridTextColumn();
-            textColumn3.Header = "Средняя площадь";
-            textColumn3.Binding = new Binding("Column3");
-            genTable.Columns.Add(textColumn3);
-
-            for (int i = 0; i < 3; i++)
-            {
-                genTable.Items.Add(new DataItem2 { Column1 = "a.1", Column2 = "a.2", Column3 = "a.3" });
-            }
-
-            int width = ((int)this.Width) - 150;
-            genTable.VerticalAlignment = VerticalAlignment.Center;
-            genTable.Columns[0].Width = width * 0.2;
-            genTable.Columns[1].Width = width * 0.4;
-            genTable.Columns[2].Width = width * 0.4;*/
-        }
-        private void vehicle_Click(object sender, RoutedEventArgs e)
-        {
-            ShowVehicles();
-            /*
-            genTable.Columns.Clear();
-            genTable.Items.Clear();
-
-            DataGridTextColumn textColumn = new DataGridTextColumn();
-            textColumn.Header = "ID";
-            textColumn.Binding = new Binding("Column1");
-            genTable.Columns.Add(textColumn);
-
-            DataGridTextColumn textColumn2 = new DataGridTextColumn();
-            textColumn2.Header = "Название автомобиля";
-            textColumn2.Binding = new Binding("Column2");
-            genTable.Columns.Add(textColumn2);
-
-            DataGridTextColumn textColumn3 = new DataGridTextColumn();
-            textColumn3.Header = "Марка автомобиля";
-            textColumn3.Binding = new Binding("Column3");
-            genTable.Columns.Add(textColumn3);
-
-            DataGridTextColumn textColumn4 = new DataGridTextColumn();
-            textColumn4.Header = "Тип кузова";
-            textColumn4.Binding = new Binding("Column4");
-            genTable.Columns.Add(textColumn4);
-
-            for (int i = 0; i < 3; i++)
-            {
-                genTable.Items.Add(new DataItem { Column1 = "a.1", Column2 = "a.2", Column3 = "a.3", Column4 = "a.4" });
-            }
-
-            //genTable.Width = title.Width;
-            int width = ((int)this.Width) - 150;
-            genTable.VerticalAlignment = VerticalAlignment.Center;
-            genTable.Columns[0].Width = width * 0.1;
-            genTable.Columns[1].Width = width * 0.3;
-            genTable.Columns[2].Width = width * 0.3;
-            genTable.Columns[3].Width = width * 0.3;*/
         }
 
         private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
@@ -163,15 +39,15 @@ namespace LW_2_16_2.Forms
             textColumn2.Binding = new Binding("Column2");
             if (genTable.Columns.Count == 4)
             {
-                vehicle_Click(sender, e);
+                ShowVehicles(sender, e);
             }
             else if (genTable.Columns.Contains(textColumn2))
             {
-                vehicle_brands_Click(sender, e);
+                ShowBrands(sender, e);
             }
             else
             {
-                vehicle_bodies_Click(sender, e);
+                ShowBodies(sender, e);
             }
         }
 
@@ -194,48 +70,72 @@ namespace LW_2_16_2.Forms
             }
         }
 
-        private List<Vehicle> _vehicles;
-        private List<Brand> _brands;
-        private List<Body> _bodies;
-
-        private void LoadBrands()
-        {
-            using (BrandRepository rep = new BrandRepository())
-            {
-                _brands = rep.GetList().ToList();
-            }
-        }
-
-        private void ShowVehicles()
+        private void ShowVehicles(object sender, RoutedEventArgs e)
         {
             using (VehicleRepository rep = new VehicleRepository())
             {
-                _vehicles = rep.GetList().ToList();
+                genTable.ItemsSource = rep.GetList().Select(x => new VehicleTableItem(x));
             }
-
-            genTable.ItemsSource = _vehicles.Select(x => new VehicleTableItem(x));
 
             if (genTable.Columns.Count > 0)
             {
                 genTable.Columns[1].Header = "Модель";
                 genTable.Columns[2].Header = "Марка";
                 genTable.Columns[3].Header = "Кузов";
+
+                SetColumnsWidth(4);
             }
         }
 
-        private void ShowBodies()
+        private void ShowBodies(object sender, RoutedEventArgs e)
         {
             using (BodyRepository rep = new BodyRepository())
             {
-                _bodies = rep.GetList().ToList();
+                genTable.ItemsSource = rep.GetList().Select(x => new BodyTableItem(x));
+            }
+
+            if (genTable.Columns.Count > 0)
+            {
+                genTable.Columns[1].Header = "Название";
+                genTable.Columns[2].Header = "Площадь кузова";
+
+                SetColumnsWidth(3);
             }
         }
 
-        private void ShowBrands()
+        private void ShowBrands(object sender, RoutedEventArgs e)
         {
             using (BrandRepository rep = new BrandRepository())
             {
-                _brands = rep.GetList().ToList();
+                genTable.ItemsSource = rep.GetList().Select(x => new BrandTableItem(x));
+            }
+
+            if (genTable.Columns.Count > 0)
+            {
+                genTable.Columns[1].Header = "Название";
+                genTable.Columns[2].Header = "Страна";
+
+                SetColumnsWidth(3);
+            }
+        }
+
+        private void SetColumnsWidth(int columnsNumber)
+        {
+            // costil!
+            int width = ((int)this.Width) - 150;
+
+            if (columnsNumber == 3)
+            {
+                genTable.Columns[0].Width = width * 0.2;
+                genTable.Columns[1].Width = width * 0.4;
+                genTable.Columns[2].Width = width * 0.4;
+            }
+            else if (columnsNumber == 4)
+            {
+                genTable.Columns[0].Width = width * 0.1;
+                genTable.Columns[1].Width = width * 0.3;
+                genTable.Columns[2].Width = width * 0.3;
+                genTable.Columns[3].Width = width * 0.3;
             }
         }
     }

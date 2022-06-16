@@ -31,9 +31,9 @@
                 </Grid>
 
                 <Grid Margin="0 0 0 20">
-                    <Button x:Name="vehicle_brands" HorizontalAlignment="Left" Content="Марки" Width="120" BorderThickness="1" Click="vehicle_brands_Click" />
-                    <Button x:Name="vehicle_bodies" HorizontalAlignment="Center" Content="Кузова" Width="120"  Click="vehicle_bodies_Click"/>
-                    <Button x:Name="vehicle" HorizontalAlignment="Right" Content="Автомобили"   Width="120" Cursor="Hand"  Click="vehicle_Click"/>
+                    <Button x:Name="vehicle_brands" HorizontalAlignment="Left" Content="Марки" Width="120" BorderThickness="1" Click="ShowBrands" />
+                    <Button x:Name="vehicle_bodies" HorizontalAlignment="Center" Content="Кузова" Width="120"  Click="ShowBodies"/>
+                    <Button x:Name="vehicle" HorizontalAlignment="Right" Content="Автомобили"   Width="120" Cursor="Hand"  Click="ShowVehicles"/>
                 </Grid>
 
                 <DataGrid x:Name="GeneralTable" VerticalAlignment="Center"/>
