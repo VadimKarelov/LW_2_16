@@ -16,7 +16,7 @@
     <Compile Update="Forms\AddingPages\AddVehicle.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Forms\AdminWind.xaml.cs">
+    <Compile Update="Forms\AdminWindow\AdminWind.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -30,7 +30,7 @@
     <Page Update="Forms\AddingPages\AddVehicle.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Forms\AdminWind.xaml">
+    <Page Update="Forms\AdminWindow\AdminWind.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Forms\MainWindow.xaml">
