@@ -23,3 +23,28 @@ D:\University\2 year\OOP\LW_2_16\LW_2_16_1\obj\Debug\net6.0-windows\ref\LW_2_16_
 D:\University\2 year\OOP\LW_2_16\LW_2_16_1\bin\Debug\net6.0-windows\Newtonsoft.Json.dll
 D:\University\2 year\OOP\LW_2_16\LW_2_16_1\bin\Debug\net6.0-windows\System.Text.Json.dll
 D:\University\2 year\OOP\LW_2_16\LW_2_16_1\obj\Debug\net6.0-windows\LW_2_16_1.csproj.CopyComplete
+E:\source\repos\LW_2_16\LW_2_16_1\bin\Debug\net6.0-windows\LW_2_16_1.exe
+E:\source\repos\LW_2_16\LW_2_16_1\bin\Debug\net6.0-windows\LW_2_16_1.dll.config
+E:\source\repos\LW_2_16\LW_2_16_1\bin\Debug\net6.0-windows\LW_2_16_1.deps.json
+E:\source\repos\LW_2_16\LW_2_16_1\bin\Debug\net6.0-windows\LW_2_16_1.runtimeconfig.json
+E:\source\repos\LW_2_16\LW_2_16_1\bin\Debug\net6.0-windows\LW_2_16_1.dll
+E:\source\repos\LW_2_16\LW_2_16_1\bin\Debug\net6.0-windows\LW_2_16_1.pdb
+E:\source\repos\LW_2_16\LW_2_16_1\bin\Debug\net6.0-windows\Newtonsoft.Json.dll
+E:\source\repos\LW_2_16\LW_2_16_1\bin\Debug\net6.0-windows\System.Text.Json.dll
+E:\source\repos\LW_2_16\LW_2_16_1\obj\Debug\net6.0-windows\LW_2_16_1.csproj.AssemblyReference.cache
+E:\source\repos\LW_2_16\LW_2_16_1\obj\Debug\net6.0-windows\MainWindow.g.cs
+E:\source\repos\LW_2_16\LW_2_16_1\obj\Debug\net6.0-windows\App.g.cs
+E:\source\repos\LW_2_16\LW_2_16_1\obj\Debug\net6.0-windows\LW_2_16_1_MarkupCompile.cache
+E:\source\repos\LW_2_16\LW_2_16_1\obj\Debug\net6.0-windows\LW_2_16_1_MarkupCompile.lref
+E:\source\repos\LW_2_16\LW_2_16_1\obj\Debug\net6.0-windows\MainWindow.baml
+E:\source\repos\LW_2_16\LW_2_16_1\obj\Debug\net6.0-windows\LW_2_16_1.g.resources
+E:\source\repos\LW_2_16\LW_2_16_1\obj\Debug\net6.0-windows\LW_2_16_1.Properties.Resources.resources
+E:\source\repos\LW_2_16\LW_2_16_1\obj\Debug\net6.0-windows\LW_2_16_1.csproj.GenerateResource.cache
+E:\source\repos\LW_2_16\LW_2_16_1\obj\Debug\net6.0-windows\LW_2_16_1.GeneratedMSBuildEditorConfig.editorconfig
+E:\source\repos\LW_2_16\LW_2_16_1\obj\Debug\net6.0-windows\LW_2_16_1.csproj.CoreCompileInputs.cache
+E:\source\repos\LW_2_16\LW_2_16_1\obj\Debug\net6.0-windows\LW_2_16_1.csproj.CopyComplete
+E:\source\repos\LW_2_16\LW_2_16_1\obj\Debug\net6.0-windows\LW_2_16_1.dll
+E:\source\repos\LW_2_16\LW_2_16_1\obj\Debug\net6.0-windows\refint\LW_2_16_1.dll
+E:\source\repos\LW_2_16\LW_2_16_1\obj\Debug\net6.0-windows\LW_2_16_1.pdb
+E:\source\repos\LW_2_16\LW_2_16_1\obj\Debug\net6.0-windows\LW_2_16_1.genruntimeconfig.cache
+E:\source\repos\LW_2_16\LW_2_16_1\obj\Debug\net6.0-windows\ref\LW_2_16_1.dll
