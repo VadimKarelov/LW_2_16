@@ -71,6 +71,17 @@ namespace LW_2_16_2.Forms
             }
         }
 
+        private void Button_Update_Click(object sender, RoutedEventArgs e)
+        {
+            switch (_currentTable)
+            {
+                case CurrentTable.Vehicles: NavigationService.Navigate(new Forms.AddingPages.AddVehicle(0)); break;
+                case CurrentTable.Brands: NavigationService.Navigate(new Forms.AddingPages.AddBrand()); break;
+                case CurrentTable.Bodies: NavigationService.Navigate(new Forms.AddingPages.AddBody()); break;
+                default: throw new Exception("No table selected");
+            }
+        }
+
         private void ShowVehicles(object sender, RoutedEventArgs e)
         {
             _currentTable = CurrentTable.Vehicles;

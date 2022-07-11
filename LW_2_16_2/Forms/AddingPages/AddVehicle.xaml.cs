@@ -22,11 +22,30 @@ namespace LW_2_16_2.Forms.AddingPages
     /// </summary>
     public partial class AddVehicle : Page
     {
+        private bool _loading = false;
+        private Vehicle UnchangedObject;
+
         public AddVehicle()
         {
             InitializeComponent();
             LoadBodiesToComboBox();
             LoadBrandsToComboBox();
+            _loading = true;
+        }
+
+        public AddVehicle(int ind)
+        {
+            InitializeComponent();
+            LoadBodiesToComboBox();
+            LoadBrandsToComboBox();
+            using (VehicleRepository rep = new VehicleRepository())
+            {
+                UnchangedObject = rep.Get(ind);
+                rep.Update(UnchangedObject);
+            }
+            
+            FormName.Text = "Изменение автомобиля";
+            FormButton.Content = "Внести изменения";
         }
 
         private void LoadBrandsToComboBox()
@@ -46,6 +65,47 @@ namespace LW_2_16_2.Forms.AddingPages
         }
 
         private void CreateVehicle_Click(object sender, RoutedEventArgs e)
+        {
+            if (_loading)
+            {
+                CreateVehicle_Click();
+            }
+            else
+            {
+                UpdateVehicle_Click();
+            }
+        }
+
+        private void UpdateVehicle_Click()
+        {
+            if (NewBrand_cb.SelectedIndex != -1 && NewModel_tb.Text != "" && NewBody_cb.SelectedIndex != -1)
+            {
+                int brandId, bodyId;
+
+                using (BrandRepository rep = new BrandRepository())
+                {
+                    brandId = rep.GetList().First(x => x.BrandTitle == NewBrand_cb.SelectedValue.ToString()).Id;
+                }
+
+                using (BodyRepository rep = new BodyRepository())
+                {
+                    bodyId = rep.GetList().First(x => x.BodyTitle == NewBody_cb.SelectedValue.ToString()).Id;
+                }
+
+                UnchangedObject.VehicleTitle = NewModel_tb.Text;
+                UnchangedObject.VehicleBodyId = bodyId;
+                UnchangedObject.VehicleBrandId = brandId;
+
+                using (VehicleRepository rep = new VehicleRepository())
+                {
+                    rep.Save();
+                }
+
+                NavigationService.Navigate(new Forms.AdminWind());
+            }
+        }
+
+        private void CreateVehicle_Click()
         {
             if (NewBrand_cb.SelectedIndex != -1 && NewModel_tb.Text != "" && NewBody_cb.SelectedIndex != -1)
             {

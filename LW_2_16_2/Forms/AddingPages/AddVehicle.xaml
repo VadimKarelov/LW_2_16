@@ -15,7 +15,7 @@
             <RowDefinition Height="0.2*"/>
         </Grid.RowDefinitions>
         <Border Grid.Row="0" Margin="10" BorderThickness="1" BorderBrush="Black" Background="White"  Padding="10"  CornerRadius="30" >
-            <TextBlock Grid.Row="0" Grid.Column="0"  FontSize="30" FontWeight ="Bold" TextAlignment="Center" VerticalAlignment="Center">
+            <TextBlock x:Name="FormName" Grid.Row="0" Grid.Column="0"  FontSize="30" FontWeight ="Bold" TextAlignment="Center" VerticalAlignment="Center">
                      Добавление нового автомобиля
             </TextBlock>
         </Border>
@@ -59,7 +59,7 @@
 
         </Border>
         <Grid VerticalAlignment="Center" Margin="0 0 0 0" Grid.Row="2">
-            <Button Margin="20" Content="Добавить" Click="CreateVehicle_Click" Height="50" Width="auto" BorderThickness="1"  Background="#FF43165E" Cursor="Hand" />
+            <Button x:Name="FormButton" Margin="20" Content="Добавить" Click="CreateVehicle_Click" Height="50" Width="auto" BorderThickness="1"  Background="#FF43165E" Cursor="Hand" />
         </Grid>
     </Grid>
 </Page>
