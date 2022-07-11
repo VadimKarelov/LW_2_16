@@ -26,6 +26,8 @@ namespace LW_2_16_2.Forms
     {
         public DataGrid genTable;
 
+        private object _editingObject;
+
         public AdminWind()
         {
             InitializeComponent();
@@ -71,6 +73,21 @@ namespace LW_2_16_2.Forms
             }
         }
 
+        private void Button_Edit_Click(object sender, RoutedEventArgs e)
+        {
+            if (genTable.SelectedIndex != -1)
+            {
+                int id = genTable.ItemsSource.ToList()[genTable.SelectedIndex].Id;
+                switch (_currentTable)
+                {
+                    case CurrentTable.Vehicles: NavigationService.Navigate(new Forms.AddingPages.AddVehicle(id)); break;
+                    case CurrentTable.Brands: NavigationService.Navigate(new Forms.AddingPages.AddBrand(id)); break;
+                    case CurrentTable.Bodies: NavigationService.Navigate(new Forms.AddingPages.AddBody(id)); break;
+                    default: throw new Exception("No table selected");
+                }
+            }
+        }
+
         private void ShowVehicles(object sender, RoutedEventArgs e)
         {
             _currentTable = CurrentTable.Vehicles;
@@ -82,6 +99,7 @@ namespace LW_2_16_2.Forms
 
             if (genTable.Columns.Count > 0)
             {
+                genTable.Columns[0].Visibility = Visibility.Hidden;
                 genTable.Columns[1].Header = "Модель";
                 genTable.Columns[2].Header = "Марка";
                 genTable.Columns[3].Header = "Кузов";
@@ -101,6 +119,7 @@ namespace LW_2_16_2.Forms
 
             if (genTable.Columns.Count > 0)
             {
+                genTable.Columns[0].Visibility = Visibility.Hidden;
                 genTable.Columns[1].Header = "Название";
                 genTable.Columns[2].Header = "Площадь кузова";
 
@@ -119,6 +138,7 @@ namespace LW_2_16_2.Forms
 
             if (genTable.Columns.Count > 0)
             {
+                genTable.Columns[0].Visibility = Visibility.Hidden;
                 genTable.Columns[1].Header = "Название";
                 genTable.Columns[2].Header = "Страна";
 
