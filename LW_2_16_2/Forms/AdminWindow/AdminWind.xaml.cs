@@ -24,7 +24,7 @@ namespace LW_2_16_2.Forms
     /// </summary>
     public partial class AdminWind : Page
     {
-        public DataGrid genTable = new DataGrid();
+        public DataGrid genTable;
 
         public AdminWind()
         {
@@ -77,7 +77,7 @@ namespace LW_2_16_2.Forms
 
             using (VehicleRepository rep = new VehicleRepository())
             {
-                genTable.ItemsSource = rep.GetList().Select(x => new VehicleTableItem(x));
+                genTable.ItemsSource = rep.GetList().Select(x => new VehicleTableItem(x)).ToList();
             }
 
             if (genTable.Columns.Count > 0)
@@ -96,7 +96,7 @@ namespace LW_2_16_2.Forms
 
             using (BodyRepository rep = new BodyRepository())
             {
-                genTable.ItemsSource = rep.GetList().Select(x => new BodyTableItem(x));
+                genTable.ItemsSource = rep.GetList().Select(x => new BodyTableItem(x)).ToList();
             }
 
             if (genTable.Columns.Count > 0)
@@ -114,7 +114,7 @@ namespace LW_2_16_2.Forms
 
             using (BrandRepository rep = new BrandRepository())
             {
-                genTable.ItemsSource = rep.GetList().Select(x => new BrandTableItem(x));
+                genTable.ItemsSource = rep.GetList().Select(x => new BrandTableItem(x)).ToList();
             }
 
             if (genTable.Columns.Count > 0)
