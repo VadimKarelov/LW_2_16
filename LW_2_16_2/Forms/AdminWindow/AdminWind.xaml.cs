@@ -32,6 +32,15 @@ namespace LW_2_16_2.Forms
             genTable = GeneralTable;
         }
 
+        enum CurrentTable
+        {
+            Vehicles,
+            Brands,
+            Bodies
+        }
+
+        private CurrentTable _currentTable;
+
         private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             DataGridTextColumn textColumn2 = new DataGridTextColumn();
@@ -53,25 +62,19 @@ namespace LW_2_16_2.Forms
 
         private void Button_Add_Click(object sender, RoutedEventArgs e)
         {
-            DataGridTextColumn textColumn2 = new DataGridTextColumn();
-            textColumn2.Header = "Название марки";
-            textColumn2.Binding = new Binding("Column2");
-            if (genTable.Columns.Count == 4)
+            switch (_currentTable)
             {
-                NavigationService.Navigate(new Forms.AddingPages.AddVehicle());
-            }
-            else if (genTable.Columns.Contains(textColumn2))
-            {
-                NavigationService.Navigate(new Forms.AddingPages.AddBrand());
-            }
-            else
-            {
-                NavigationService.Navigate(new Forms.AddingPages.AddBody());
+                case CurrentTable.Vehicles: NavigationService.Navigate(new Forms.AddingPages.AddVehicle()); break;
+                case CurrentTable.Brands: NavigationService.Navigate(new Forms.AddingPages.AddBrand()); break;
+                case CurrentTable.Bodies: NavigationService.Navigate(new Forms.AddingPages.AddBody()); break;
+                default: throw new Exception("No table selected");
             }
         }
 
         private void ShowVehicles(object sender, RoutedEventArgs e)
         {
+            _currentTable = CurrentTable.Vehicles;
+
             using (VehicleRepository rep = new VehicleRepository())
             {
                 genTable.ItemsSource = rep.GetList().Select(x => new VehicleTableItem(x));
@@ -89,6 +92,8 @@ namespace LW_2_16_2.Forms
 
         private void ShowBodies(object sender, RoutedEventArgs e)
         {
+            _currentTable = CurrentTable.Bodies;
+
             using (BodyRepository rep = new BodyRepository())
             {
                 genTable.ItemsSource = rep.GetList().Select(x => new BodyTableItem(x));
@@ -105,6 +110,8 @@ namespace LW_2_16_2.Forms
 
         private void ShowBrands(object sender, RoutedEventArgs e)
         {
+            _currentTable = CurrentTable.Brands;
+
             using (BrandRepository rep = new BrandRepository())
             {
                 genTable.ItemsSource = rep.GetList().Select(x => new BrandTableItem(x));
