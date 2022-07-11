@@ -3,6 +3,7 @@ using LW_2_16_2.Forms.AdminWindow;
 using LW_2_16_2.Forms.AdminWindow.TableItems;
 using LW_2_16_2.Models;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -77,12 +78,28 @@ namespace LW_2_16_2.Forms
         {
             if (genTable.SelectedIndex != -1)
             {
-                int id = genTable.ItemsSource.ToList()[genTable.SelectedIndex].Id;
                 switch (_currentTable)
                 {
-                    case CurrentTable.Vehicles: NavigationService.Navigate(new Forms.AddingPages.AddVehicle(id)); break;
-                    case CurrentTable.Brands: NavigationService.Navigate(new Forms.AddingPages.AddBrand(id)); break;
-                    case CurrentTable.Bodies: NavigationService.Navigate(new Forms.AddingPages.AddBody(id)); break;
+                    case CurrentTable.Vehicles:
+                        {
+                            int id1 = NonGenericToGeneric(genTable.ItemsSource).Select(x => (VehicleTableItem)x).ToList()[genTable.SelectedIndex].ID;
+                            NavigationService.Navigate(new Forms.AddingPages.AddVehicle(id1));
+                            break;
+                        }
+                        /*
+                    case CurrentTable.Brands:
+                        {
+                            int id2 = NonGenericToGeneric(genTable.ItemsSource).Select(x => (BrandTableItem)x).ToList()[genTable.SelectedIndex].ID;
+                            NavigationService.Navigate(new Forms.AddingPages.AddBrand(id2)); 
+                            break;
+                        }
+                    case CurrentTable.Bodies:
+                        {
+                            int id3 = NonGenericToGeneric(genTable.ItemsSource).Select(x => (BodyTableItem)x).ToList()[genTable.SelectedIndex].ID;
+                            NavigationService.Navigate(new Forms.AddingPages.AddBody(id3)); 
+                            break;
+                        }
+                        */
                     default: throw new Exception("No table selected");
                 }
             }
@@ -164,6 +181,18 @@ namespace LW_2_16_2.Forms
                 genTable.Columns[2].Width = width * 0.3;
                 genTable.Columns[3].Width = width * 0.3;
             }
+        }
+
+        private IEnumerable<object> NonGenericToGeneric(IEnumerable coll)
+        {
+            List<object> result = new List<object>();
+
+            foreach (var i in coll)
+            {
+                result.Add(i);
+            }
+
+            return result;
         }
     }
 }

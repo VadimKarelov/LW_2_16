@@ -98,6 +98,7 @@ namespace LW_2_16_2.Forms.AddingPages
 
                 using (VehicleRepository rep = new VehicleRepository())
                 {
+                    rep.Update(UnchangedObject);
                     rep.Save();
                 }
 

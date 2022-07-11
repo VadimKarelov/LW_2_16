@@ -25,7 +25,7 @@
                     <TextBlock  Grid.Column="0" x:Name="title"  FontSize="30" FontWeight ="Bold" >
                      Автосалон в Закамске
                     </TextBlock>
-                    <Button Grid.Column="1" Content="Изменить"  Width="100" BorderThickness="1"  Background="#FF43165E" Cursor="Hand" Click="Button_Update_Click"/>
+                    <Button Grid.Column="1" Content="Изменить"  Width="100" BorderThickness="1"  Background="#FF43165E" Cursor="Hand" Click="Button_Edit_Click"/>
                     <Button Grid.Column="2" Content="Добавить" Width="100" BorderThickness="1"  Background="#FF43165E" Cursor="Hand" Click="Button_Add_Click"/>
                     <Button Grid.Column="3" Content="Удалить" Width="100" BorderThickness="1"  Background="#FF43165E" Cursor="Hand" />
                 </Grid>
